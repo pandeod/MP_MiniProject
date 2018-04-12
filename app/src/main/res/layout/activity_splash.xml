@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#fff"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".SplashActivity">
@@ -11,7 +12,6 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/coffee_gif" />
+        android:src="@drawable/coffee_logo" />
 
 </RelativeLayout>
