@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int STATIC_TIME_OUT=4000;
+    private static int STATIC_TIME_OUT=3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,6 @@ public class SplashActivity extends AppCompatActivity {
 
                //built in android fade in-out animation
                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-
                finish();
             }
         },STATIC_TIME_OUT);
