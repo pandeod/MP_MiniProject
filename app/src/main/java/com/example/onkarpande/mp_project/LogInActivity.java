@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.onkarpande.mp_project.Activity.HomeActivity;
 import com.example.onkarpande.mp_project.Adapter.DatabaseHandler;
 
 public class LogInActivity extends AppCompatActivity {
@@ -50,7 +51,8 @@ public class LogInActivity extends AppCompatActivity {
                     opr=db.isPresent(uEmail,uPassword);
                 if(opr)
                 {
-                    showMessage("Successful !","Log In Successful !!!");
+                    //showMessage("Successful !","Log In Successful !!!");
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 }
                 else
                 {
@@ -66,7 +68,7 @@ public class LogInActivity extends AppCompatActivity {
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
-        builder.setPositiveButton("ok",null);
+        //builder.setPositiveButton("ok",null);
         builder.show();
     }
 }

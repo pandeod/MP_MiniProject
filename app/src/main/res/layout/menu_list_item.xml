@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_margin="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/menu_image"
+        android:src="@drawable/ic_lock_black_24dp"
+        android:layout_weight="3"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp" />
+    <LinearLayout
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp">
+        <TextView
+            android:id="@+id/menu_price"
+            android:layout_weight="2"
+            android:text="Price"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/menu_name"
+            android:layout_weight="3"
+            android:text="Menu Item"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_weight="1"
+            android:text="Add to cart"
+            android:drawableEnd="@drawable/ic_shopping_cart_white_24dp"
+            android:layout_gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

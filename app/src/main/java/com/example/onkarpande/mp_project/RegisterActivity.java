@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
-        builder.setPositiveButton("ok",null);
+        //builder.setPositiveButton("ok",null);
         builder.show();
     }
 }
