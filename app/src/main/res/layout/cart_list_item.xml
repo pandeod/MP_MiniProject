@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
     android:orientation="horizontal"
     android:layout_margin="12dp"
     android:layout_width="match_parent"
@@ -30,12 +33,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
-            android:id="@+id/add_to_cart"
+            android:id="@+id/remove_from_cart"
             android:layout_weight="1"
-            android:text="Add to cart"
+            android:text="Remove from cart"
             android:drawableEnd="@drawable/ic_shopping_cart_white_24dp"
             android:layout_gravity="right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
+</android.support.v7.widget.CardView>

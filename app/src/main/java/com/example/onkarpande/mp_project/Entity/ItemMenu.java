@@ -10,11 +10,11 @@ public class ItemMenu {
     {
 
     }
-    public ItemMenu(String id, String name, String price, String image) {
+    public ItemMenu(String id, String name, String price, String url) {
         this.price = price;
         this.name = name;
         this.id = id;
-        this.url =image;
+        this.url =url;
     }
 
     public String getPrice() {

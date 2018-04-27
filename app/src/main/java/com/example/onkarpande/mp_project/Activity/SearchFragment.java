@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.onkarpande.mp_project.Adapter.MenuAdapter;
 import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.R;
@@ -20,6 +19,8 @@ public class SearchFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ItemMenu> itemMenus;
+    StringBuilder sb = new StringBuilder();
+
     public SearchFragment() {
 
     }
@@ -42,19 +43,20 @@ public class SearchFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         itemMenus=new ArrayList<>();
-
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-        itemMenus.add(new ItemMenu("1","First Item","$123","https://s7.postimg.cc/or72ps3wr/test2.jpg"));
-
-        //itemMenus.add(new ItemMenu("1","First Item","$123",""));
-
         adapter=new MenuAdapter(itemMenus,getContext());
-        recyclerView.setAdapter(adapter);
 
+
+
+        itemMenus.add(new ItemMenu("1","First Item","$1","https://vedh.000webhostapp.com/images/dow.png"));
+        itemMenus.add(new ItemMenu("2","Second Item","$2","https://vedh.000webhostapp.com/images/dow.png"));
+        itemMenus.add(new ItemMenu("3","Third Item","$3","https://vedh.000webhostapp.com/images/dow.png"));
+        itemMenus.add(new ItemMenu("4","Four Item","$4","https://vedh.000webhostapp.com/images/dow.png"));
+        itemMenus.add(new ItemMenu("5","Five Item","$5","https://vedh.000webhostapp.com/images/dow.png"));
+        itemMenus.add(new ItemMenu("6","Six Item","$6","https://vedh.000webhostapp.com/images/dow.png"));
+
+       // itemMenus.add(new ItemMenu("1","First Item","$123",""));
+
+        recyclerView.setAdapter(adapter);
         return root;
     }
 

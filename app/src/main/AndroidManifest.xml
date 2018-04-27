@@ -21,15 +21,15 @@
         </activity>
         <activity
             android:name=".LogInActivity"
-            android:theme="@style/AppFullScreenTheme"></activity>
+            android:theme="@style/AppFullScreenTheme"/>
 
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppFullScreenTheme"></activity>
+            android:theme="@style/AppFullScreenTheme"/>
 
         <activity
             android:name=".Activity.HomeActivity"
-            android:theme="@style/AppFullScreenTheme"></activity>
+            android:theme="@style/AppFullScreenTheme"/>
 
     </application>
 

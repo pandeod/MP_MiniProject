@@ -1,5 +1,7 @@
 package com.example.onkarpande.mp_project.Activity;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,9 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.R;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+
+    public final List<ItemMenu> cartItems=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,66 @@ public class HomeActivity extends AppCompatActivity {
         transaction.commit();
 
         //Used to select an item programmatically
-        bottomNavigationView.getMenu().getItem(2).setChecked(true);
+        bottomNavigationView.getMenu().getItem(1).setChecked(true);
     }
+
+    public List<ItemMenu> getDefaults()
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        Gson gson = new Gson();
+
+        String json = appSharedPrefs.getString("MyCart","");
+
+        Type type = new TypeToken<List<ItemMenu>>(){}.getType();
+
+        List<ItemMenu> itemMenus= gson.fromJson(json, type);
+
+        return itemMenus;
+
+    }
+    public void setDefaults(ItemMenu itemMenu)
+    {
+        cartItems.add(itemMenu);
+
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+
+        Gson gson = new Gson();
+
+        String jsonCart= gson.toJson(cartItems);
+
+        prefsEditor.putString("MyCart", jsonCart);
+
+        prefsEditor.commit();
+    }
+
+    public void setCartItemsNull()
+    {
+        cartItems.clear();
+    }
+    public void setClear()
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = appSharedPrefs.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+    public void setWholeArray(List<ItemMenu> itemMenuWhole)
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+
+        Gson gson = new Gson();
+
+        String jsonCart= gson.toJson(itemMenuWhole);
+
+        prefsEditor.putString("MyCart", jsonCart);
+
+        prefsEditor.apply();
+    }
+
 }
