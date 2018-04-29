@@ -35,8 +35,7 @@
         <Button
             android:id="@+id/remove_from_cart"
             android:layout_weight="1"
-            android:text="Remove from cart"
-            android:drawableEnd="@drawable/ic_shopping_cart_white_24dp"
+            android:text="Remove"
             android:layout_gravity="right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

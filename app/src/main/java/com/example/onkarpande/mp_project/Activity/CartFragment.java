@@ -105,8 +105,7 @@ public class CartFragment extends Fragment {
             ItemMenu cartMenu=cartMenus.get(position);
             holder.mPrice.setText(cartMenu.getPrice());
             holder.mName.setText(cartMenu.getName());
-            holder.mId = cartMenu.getId();
-            holder.itm = cartMenu;
+           final String cartId = cartMenu.getId();
 
             Glide.with(this.context)
                     .load(cartMenu.getUrl())
@@ -114,6 +113,25 @@ public class CartFragment extends Fragment {
                     .error(R.drawable.ic_lock_black_24dp)            // any image in case of error
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.mImage);
+
+            holder.cart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<ItemMenu> cartItems=((HomeActivity)context).getDefaults();
+                    for(ItemMenu it:cartItems)
+                    {
+                        if(it.getId().equals(cartId)) {
+                            cartItems.remove(it);
+                            break;
+                        }
+                    }
+                    ((HomeActivity)getContext()).setClear();
+                    ((HomeActivity)getContext()).setCartItemsNull();
+                    ((HomeActivity)context).setWholeArray(cartItems);
+                    cartMenus=cartItems;
+                    setRecyclerAdapter(cartMenus);
+                }
+            });
 
         }
 
@@ -128,8 +146,6 @@ public class CartFragment extends Fragment {
              TextView mName;
              ImageView mImage;
              Button cart;
-             String mId="";
-             ItemMenu itm;
 
              ViewHolder(final View itemView) {
                 super(itemView);
@@ -137,22 +153,6 @@ public class CartFragment extends Fragment {
                 mName=itemView.findViewById(R.id.menu_name);
                 mImage=itemView.findViewById(R.id.menu_image);
                 cart=itemView.findViewById(R.id.remove_from_cart);
-
-                cart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        List<ItemMenu> cartItems=((HomeActivity)context).getDefaults();
-                        for(ItemMenu it:cartItems)
-                        {
-                            if(it.getId()==mId)
-                                break;
-                        }
-                        cartItems.remove(itm);
-                        ((HomeActivity)getContext()).setClear();
-                        ((HomeActivity)context).setWholeArray(cartItems);
-                        setRecyclerAdapter(cartItems);
-                    }
-                });
             }
         }
     }

@@ -5,6 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".Activity.CartFragment">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/order_btn"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:layout_height="45dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="top"
+        android:text="Order" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_cart"
         android:layout_marginBottom="50dp"
@@ -12,11 +28,6 @@
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/order_btn"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_gravity="bottom"
-        android:text="Order" />
+    </LinearLayout>
 
 </FrameLayout>

@@ -4,9 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
 import com.example.onkarpande.mp_project.Adapter.MenuAdapter;
 import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.R;
@@ -14,12 +19,11 @@ import com.example.onkarpande.mp_project.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ItemMenu> itemMenus;
-    StringBuilder sb = new StringBuilder();
 
     public SearchFragment() {
 
@@ -57,7 +61,50 @@ public class SearchFragment extends Fragment {
        // itemMenus.add(new ItemMenu("1","First Item","$123",""));
 
         recyclerView.setAdapter(adapter);
+
+        EditText searchText=root.findViewById(R.id.search_bar);
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+
         return root;
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+
+    public void filter(String text)
+    {
+        List<ItemMenu> filterList=new ArrayList<>();
+        for(ItemMenu item: itemMenus)
+        {
+            if((item.getName().toLowerCase().contains(text.toLowerCase())) || (item.getName().toLowerCase().contains(text.toLowerCase())) )
+            {
+                filterList.add(item);
+            }
+        }
+        adapter=new MenuAdapter(filterList,getContext());
+        recyclerView.setAdapter(adapter);
+    }
 }

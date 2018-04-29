@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.SearchFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:hint="Search here"
+            android:background="@drawable/search_border"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -11,4 +35,5 @@
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
 
+    </LinearLayout>
 </FrameLayout>
