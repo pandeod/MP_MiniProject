@@ -79,7 +79,19 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void setDefaults(ItemMenu itemMenu)
     {
-        cartItems.add(itemMenu);
+        int qt=0;
+
+            for(ItemMenu it:cartItems)
+            {
+                if(it.getId().equals(itemMenu.getId()))
+                {
+                    qt=it.getQuantity();
+                    cartItems.remove(it);
+                    break;
+                }
+            }
+            itemMenu.setQuantity(qt+1);
+            cartItems.add(itemMenu);
 
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 

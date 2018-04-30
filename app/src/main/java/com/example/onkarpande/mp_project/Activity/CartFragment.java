@@ -103,8 +103,9 @@ public class CartFragment extends Fragment {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             ItemMenu cartMenu=cartMenus.get(position);
-            holder.mPrice.setText(cartMenu.getPrice());
+            holder.mPrice.setText("Price : "+cartMenu.getPrice()+" ₹");
             holder.mName.setText(cartMenu.getName());
+            holder.mQuantity.setText("Quantity : "+cartMenu.getQuantity());
            final String cartId = cartMenu.getId();
 
             Glide.with(this.context)
@@ -121,7 +122,14 @@ public class CartFragment extends Fragment {
                     for(ItemMenu it:cartItems)
                     {
                         if(it.getId().equals(cartId)) {
-                            cartItems.remove(it);
+                            if(it.getQuantity()>1)
+                            {
+                                it.setQuantity(it.getQuantity()-1);
+                            }
+                            else
+                            {
+                                cartItems.remove(it);
+                            }
                             break;
                         }
                     }
@@ -144,6 +152,7 @@ public class CartFragment extends Fragment {
 
              TextView mPrice;
              TextView mName;
+             TextView mQuantity;
              ImageView mImage;
              Button cart;
 
@@ -151,6 +160,7 @@ public class CartFragment extends Fragment {
                 super(itemView);
                 mPrice=itemView.findViewById(R.id.menu_price);
                 mName=itemView.findViewById(R.id.menu_name);
+                mQuantity=itemView.findViewById(R.id.menu_qt);
                 mImage=itemView.findViewById(R.id.menu_image);
                 cart=itemView.findViewById(R.id.remove_from_cart);
             }

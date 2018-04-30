@@ -50,7 +50,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ItemMenu itemMenu=itemMenus.get(position);
-            holder.mPrice.setText(itemMenu.getPrice());
+            holder.mPrice.setText("Price : "+itemMenu.getPrice()+" ₹");
             holder.mName.setText(itemMenu.getName());
             holder.itm = itemMenu;
 

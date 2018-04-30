@@ -5,6 +5,7 @@ public class ItemMenu {
     String name;
     String id;
     String url;
+    int quantity;
 
     public ItemMenu()
     {
@@ -15,6 +16,14 @@ public class ItemMenu {
         this.name = name;
         this.id = id;
         this.url =url;
+        this.quantity=0;
+    }
+
+    public ItemMenu(String id, String name, String price, int quantity) {
+        this.price = price;
+        this.name = name;
+        this.id = id;
+        this.quantity =quantity;
     }
 
     public String getPrice() {
@@ -33,4 +42,11 @@ public class ItemMenu {
         return url;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

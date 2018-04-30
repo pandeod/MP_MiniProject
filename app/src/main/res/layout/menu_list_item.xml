@@ -23,17 +23,18 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp">
         <TextView
-            android:id="@+id/menu_price"
-            android:layout_weight="2"
-            android:text="Price"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
             android:id="@+id/menu_name"
             android:layout_weight="3"
             android:text="Menu Item"
             android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/menu_price"
+            android:layout_weight="2"
+            android:text="Price"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
