@@ -64,6 +64,7 @@ public class CartFragment extends Fragment {
                 }
                 else
                 {
+                    ((HomeActivity)getContext()).setOrderFragment(null);
                     Toast.makeText(getContext(),"No item added to cart ",Toast.LENGTH_SHORT).show();
                 }
                 ((HomeActivity)getContext()).setClear();
