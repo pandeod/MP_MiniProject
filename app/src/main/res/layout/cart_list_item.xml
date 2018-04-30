@@ -39,6 +39,8 @@
             android:id="@+id/remove_from_cart"
             android:layout_weight="1"
             android:text="Remove"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
             android:layout_gravity="right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
