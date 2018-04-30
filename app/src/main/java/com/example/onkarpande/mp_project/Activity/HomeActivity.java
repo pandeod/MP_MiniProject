@@ -114,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
     {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = appSharedPrefs.edit();
-        editor.clear();
+        editor.remove("MyCart");
         editor.apply();
     }
 
@@ -131,6 +131,36 @@ public class HomeActivity extends AppCompatActivity {
         prefsEditor.putString("MyCart", jsonCart);
 
         prefsEditor.apply();
+    }
+
+    public void setOrderFragment(List<ItemMenu> itemMenuOrdered)
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+
+        Gson gson = new Gson();
+
+        String jsonCart= gson.toJson(itemMenuOrdered);
+
+        prefsEditor.putString("MyOrders", jsonCart);
+
+        prefsEditor.apply();
+    }
+
+    public List<ItemMenu> getOrderFragment()
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        Gson gson = new Gson();
+
+        String json = appSharedPrefs.getString("MyOrders","");
+
+        Type type = new TypeToken<List<ItemMenu>>(){}.getType();
+
+        List<ItemMenu> itemOrders= gson.fromJson(json, type);
+
+        return itemOrders;
     }
 
 }

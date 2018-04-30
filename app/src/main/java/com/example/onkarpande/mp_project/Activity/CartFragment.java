@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -56,6 +57,15 @@ public class CartFragment extends Fragment {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<ItemMenu> itms=((HomeActivity)getContext()).getDefaults();
+                if(itms.size()!=0)
+                {
+                    ((HomeActivity)getContext()).setOrderFragment(itms);
+                }
+                else
+                {
+                    Toast.makeText(getContext(),"No item added to cart ",Toast.LENGTH_SHORT).show();
+                }
                 ((HomeActivity)getContext()).setClear();
                 ((HomeActivity)getContext()).setCartItemsNull();
                 setRecyclerAdapter(null);
