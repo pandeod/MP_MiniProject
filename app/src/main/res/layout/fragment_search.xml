@@ -21,6 +21,8 @@
             android:layout_gravity="center"
             android:textSize="18sp"
             android:padding="10dp"
+            android:singleLine="true"
+            android:focusable="auto"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_search_black_24dp"
             android:hint="Search here"
@@ -31,6 +33,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:paddingLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>

@@ -58,18 +58,18 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 List<ItemMenu> itms=((HomeActivity)getContext()).getDefaults();
-                if(itms.size()!=0)
+                if(itms!=null)
                 {
                     ((HomeActivity)getContext()).setOrderFragment(itms);
+                    Toast.makeText(getContext(),"Order has been placed , see History ...",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    ((HomeActivity)getContext()).setOrderFragment(null);
                     Toast.makeText(getContext(),"No item added to cart ",Toast.LENGTH_SHORT).show();
                 }
                 ((HomeActivity)getContext()).setClear();
                 ((HomeActivity)getContext()).setCartItemsNull();
-                setRecyclerAdapter(null);
+                 setRecyclerAdapter(null);
             }
         });
 
